@@ -1,0 +1,16 @@
+.entry {
+	font-size: 18px;
+	margin-left: 20px;
+}
+
+.entry a {
+	padding-top: 5px;
+	transition: 0.3s;
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.entry :hover {
+	color: blue;
+}
