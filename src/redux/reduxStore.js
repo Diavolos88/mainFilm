@@ -1,17 +1,22 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import dialogReducer from "./dialogReducer";
 import postsReducer from "./postsReducer";
 import filmReducer from "./FilmReducer";
 import usersReducer from "./usersReducer";
+import profileReducer from "./profileReducer";
+import authReducer from "./authReducer";
+import thunkMiddleware from  "redux-thunk";
 
 let reducers = combineReducers({
     dialogsData: dialogReducer,
     reccomendData: filmReducer,
     postsData: postsReducer,
-    usersData: usersReducer
+    usersData: usersReducer,
+    profilePage: profileReducer,
+    auth: authReducer
 })
 
-let store = createStore(reducers)
+let store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 export default store
 

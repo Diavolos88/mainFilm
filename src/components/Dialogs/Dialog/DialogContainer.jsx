@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     return {
         friendData: state.dialogsData.friendData,
         mesData: state.dialogsData.mesData,
-        inputValue: state.dialogsData.inputValue
+        inputValue: state.dialogsData.inputValue,
+        isAuth: state.auth.isAuth
     }
 }
 

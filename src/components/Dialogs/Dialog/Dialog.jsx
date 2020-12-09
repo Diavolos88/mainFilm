@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialog.module.css';
 import Friends from "./Friends/Friends";
 import Messages from "./Messages/Messages";
+import {Redirect} from "react-router-dom";
 
 const Dialog = (props) => {
 
@@ -18,6 +19,10 @@ const Dialog = (props) => {
 
     let friendElements = props.friendData.map(frined => <Friends name={frined.name} id={frined.id} img={frined.img}/>)
     let mesElements = props.mesData.map((mes) => <Messages mes={mes.mes} id={mes.id}/>)
+
+    if (!props.isAuth) {
+        return (<Redirect to={'/login'} />);
+    }
     return (
         <div>
             <div className={s.dialog}>

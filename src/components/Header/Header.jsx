@@ -2,8 +2,8 @@ import React from 'react';
 import s from './Header.module.css';
 import Logo from './HeaderNav/Logo/Logo';
 import NavMenu from './HeaderNav/NavMenu/NavMenu';
-import NavSearch from './HeaderNav/NavSearch/NavSearch';
-import NavEntry from './HeaderNav/NavEntry/NavEntry';
+// import NavSearch from './HeaderNav/NavSearch/NavSearch';
+import NavEntryContainer from "./HeaderNav/NavEntry/NavEntryContainer";
 
 const Header = () => {
 	return (
@@ -15,7 +15,8 @@ const Header = () => {
 			<NavMenu name='Dialogs' />
 			<NavMenu name='Forum' />
 			<NavMenu name='Users' />
-			<NavEntry />
+			<NavMenu name='Profile' />
+			<NavEntryContainer />
 		</header>
 	);
 }
