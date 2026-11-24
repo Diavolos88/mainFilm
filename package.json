@@ -1,42 +1,788 @@
-{
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.3.0",
-    "axios": "^0.21.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "redux": "^4.0.5",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
+    <hashTree>
+        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="main" enabled="true">
+            <stringProp name="TestPlan.comments"></stringProp>
+            <boolProp name="TestPlan.functional_mode">false</boolProp>
+            <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+            <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+            <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel"
+                         testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="TestPlan.user_define_classpath">/scripts/jmeter/sberid-cloud/jar/SberId_Cloud-1.0-SNAPSHOT-shaded.jar</stringProp>
+        </TestPlan>
+        <hashTree>
+        <!--Начало шаблона плана-->
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="SimpleRegistration">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(1.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.SimpleRegistrationJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="SelfserviceClientId">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(1.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.SelfserviceClientIdJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="SelfservicePartnerGlobalId">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(1.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.SelfservicePartnerGlobalIdJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="GetAndCheckQr">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(2.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.GetAndCheckQrJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="KafkaSyncESAGuestRegister">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(1.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.KafkaSyncESAGuestRegisterJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="SendLocksByUcpIdMessageToKafka">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(15.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.SendLocksByUcpIdMessageToKafkaJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="GetLocksByUcpIdMessageFromKafka">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(1.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.GetLocksByUcpIdMessageFromKafkaJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="IPUpdatePhoneInfo">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(15.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.IPUpdatePhoneInfoJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="LoginToCloudPartnerOfClientBySmsWithRegWebAuthn">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(0.1/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.webauthn.LoginToCloudPartnerOfClientBySmsWithRegWebAuthnJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="LoginToCloudPartnerOfClientByWebAuthn">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(0.1/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.webauthn.LoginToCloudPartnerOfClientByWebAuthnJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="UserDataLite">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(5.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.UserDataLiteJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="LoginHistory">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(5.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.LoginHistoryJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+<!-- Блок скрипта -->
+            <OpenModelThreadGroup enabled="true"
+                                                                           guiclass="OpenModelThreadGroupGui"
+                                                                           testclass="OpenModelThreadGroup"
+                                                                           testname="DigitalAssistant">
+                <elementProp name="ThreadGroup.main_controller" elementType="OpenModelThreadGroupController"/>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <stringProp name="OpenModelThreadGroup.schedule">rate(0/min) random_arrivals(300 sec) rate(1.0/sec) random_arrivals(72000 sec)</stringProp>
+            </OpenModelThreadGroup>
+            <hashTree>
+                <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request"
+                             enabled="true">
+                    <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel"
+                                 testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <stringProp name="classname">ru.sberid.cloud.nt.scripts.DigitalAssistantJMeter</stringProp>
+                </JavaSampler>
+                <hashTree/>
+                <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report"
+                                 enabled="true">
+                    <boolProp name="ResultCollector.error_logging">false</boolProp>
+                    <objProp>
+                        <name>saveConfig</name>
+                        <value class="SampleSaveConfiguration">
+                            <time>true</time>
+                            <latency>true</latency>
+                            <timestamp>true</timestamp>
+                            <success>true</success>
+                            <label>true</label>
+                            <code>true</code>
+                            <message>true</message>
+                            <threadName>true</threadName>
+                            <dataType>true</dataType>
+                            <encoding>false</encoding>
+                            <assertions>true</assertions>
+                            <subresults>true</subresults>
+                            <responseData>false</responseData>
+                            <samplerData>false</samplerData>
+                            <xml>false</xml>
+                            <fieldNames>true</fieldNames>
+                            <responseHeaders>false</responseHeaders>
+                            <requestHeaders>false</requestHeaders>
+                            <responseDataOnError>false</responseDataOnError>
+                            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                            <assertionsResultsToSave>0</assertionsResultsToSave>
+                            <bytes>true</bytes>
+                            <sentBytes>true</sentBytes>
+                            <url>true</url>
+                            <threadCounts>true</threadCounts>
+                            <idleTime>true</idleTime>
+                            <connectTime>true</connectTime>
+                        </value>
+                    </objProp>
+                    <stringProp name="filename"></stringProp>
+                </ResultCollector>
+                <hashTree/>
+            </hashTree>
+
+
+        <!--Конец шаблона плана-->
+        </hashTree>
+    </hashTree>
+</jmeterTestPlan>
